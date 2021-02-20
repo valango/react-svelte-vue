@@ -2,6 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
+const lines = [
+  [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [6, 4, 2]
+]
+
+const calculateWinner = (squares) => {
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i], v = squares[a]
+    if (v && squares[b] === v && squares[c] === v) return v
+  }
+  return squares.indexOf(null) < 0 ? 'nobody' : null
+}
+
 //  Square is a Function Component.
 const Square = (props) =>
   <button className="square" onClick={() => props.onClick()}>
@@ -13,15 +25,17 @@ class Board extends React.Component {
     super(props)
     this.state = {
       isNextX: true,
-      squares: new Array(9).fill(null)
+      squares: new Array(9).fill(null),
+      winner: null
     }
   }
 
   handleClick (i) {
     let squares = this.state.squares.slice()
-    if (squares[i]) return
+    if (squares[i] || this.state.winner) return
     squares[i] = this.nextPlayer()
-    this.setState({ isNextX: !this.state.isNextX, squares })
+    const winner = calculateWinner(squares)
+    this.setState({ isNextX: !this.state.isNextX, squares, winner })
   }
 
   nextPlayer () {
@@ -36,7 +50,8 @@ class Board extends React.Component {
   }
 
   render () {
-    const status = 'Next player: X'
+    const { winner } = this.state
+    const status = winner ? 'Winner: ' + winner : 'Next player: ' + this.nextPlayer()
 
     return (
       <div>
