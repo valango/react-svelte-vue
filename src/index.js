@@ -2,21 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
-//  Square is a Controlled Component.
-class Square extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = { value: null }
-  }
-
-  render () {
-    return (
-      <button className="square" onClick={() => this.props.onClick()}>
-        {this.props.value}
-      </button>
-    )
-  }
-}
+//  Square is a Function Component.
+const Square = (props) =>
+  <button className="square" onClick={() => props.onClick()}>
+    {props.value}
+  </button>
 
 class Board extends React.Component {
   constructor (props) {
