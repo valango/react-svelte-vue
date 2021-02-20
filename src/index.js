@@ -11,13 +11,21 @@ const Square = (props) =>
 class Board extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { squares: new Array(9).fill(null) }
+    this.state = {
+      isNextX: true,
+      squares: new Array(9).fill(null)
+    }
   }
 
   handleClick (i) {
-    const squares = this.state.squares.slice()
-    squares[i] = 'X'
-    this.setState({ squares })
+    let squares = this.state.squares.slice()
+    if (squares[i]) return
+    squares[i] = this.nextPlayer()
+    this.setState({ isNextX: !this.state.isNextX, squares })
+  }
+
+  nextPlayer () {
+    return this.state.isNextX ? 'X' : 'O'
   }
 
   renderSquare (i) {
