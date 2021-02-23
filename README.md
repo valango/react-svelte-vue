@@ -17,8 +17,14 @@ As in case of any real project, the _Issues list_ will play its role.
 ### React
 The original readme is [here](doc/react.md).
 
-1. **Installation:** `npx create-react-app my-app` was basically all - yay!
+1. **Installation:** `npx create-react-app my-app` - that was basically all - yay!
 1. **Concepts and learning:**
    - Very straight-forward and intuitive in the beginning.
    - From [Effect Hooks](https://reactjs.org/docs/hooks-effect.html) on,
-   it took a little more effort to comprehend (not _how_, but _what for_).
+   it took a little more effort to comprehend (not _how to_, but _what for_).
+
+### Svelte
+Not started.
+
+### Vue
+Not started.
