@@ -9,7 +9,9 @@ const lines = [
 const calculateWinner = (squares) => {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i], v = squares[a]
-    if (v && squares[b] === v && squares[c] === v) return v
+    if (v && squares[b] === v && squares[c] === v) {
+      return v
+    }
   }
   return squares.indexOf(null) < 0 ? 'nobody' : null
 }
@@ -18,38 +20,28 @@ export default class Board extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      isNextX: true,
-      squares: new Array(9).fill(null),
-      winner: null
+      squares: new Array(9).fill(null)
     }
   }
 
   handleClick (i) {
     let squares = this.state.squares.slice()
-    if (squares[i] || this.state.winner) return
-    squares[i] = this.nextPlayer()
-    const winner = calculateWinner(squares)
-    this.setState({ isNextX: !this.state.isNextX, squares, winner })
-  }
-
-  nextPlayer () {
-    return this.state.isNextX ? 'X' : 'O'
+    if (squares[i] || this.props.winner) return
+    squares[i] = this.props.getPlayer()
+    this.setState({ squares })
+    this.props.commitMove(calculateWinner(squares))
   }
 
   renderSquare (i) {
     return <Square
-      value={this.state.squares[i]}
-      onClick={() => this.handleClick(i)}
+      value = {this.state.squares[i]}
+      onClick = {() => this.handleClick(i)}
     />
   }
 
   render () {
-    const { winner } = this.state
-    const status = winner ? 'Winner: ' + winner : 'Next player: ' + this.nextPlayer()
-
     return (
       <div>
-        <div className="status">{status}</div>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
