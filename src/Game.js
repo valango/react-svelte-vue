@@ -11,7 +11,15 @@ export default class Game extends React.Component {
       winner: null
     }
     //  Todo: check if this is kosher to add instance properties this way.
+    this.tick = undefined
+  }
+
+  componentDidMount () {
     this.tick = setTimeout(() => this.timerTick(), 100)
+  }
+
+  componentWillUnmount () {
+    clearTimeout(this.tick)
   }
 
   timerTick () {
