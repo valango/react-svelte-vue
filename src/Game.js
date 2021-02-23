@@ -2,6 +2,9 @@
 import React from 'react'
 import Board from './Board'
 
+const TICK = 1000
+const { round } = Math
+
 export default class Game extends React.Component {
   constructor (props) {
     super(props)
@@ -15,7 +18,7 @@ export default class Game extends React.Component {
   }
 
   componentDidMount () {
-    this.tick = setTimeout(() => this.timerTick(), 100)
+    this.tick = setTimeout(() => this.timerTick(), TICK)
   }
 
   componentWillUnmount () {
@@ -24,9 +27,9 @@ export default class Game extends React.Component {
 
   timerTick () {
     const times = [...this.state.times]
-    times[this.state.movesCount & 1] += 0.1
+    times[this.state.movesCount & 1] += TICK
     this.setState({ times })
-    this.tick = setTimeout(() => this.timerTick(), 100)
+    this.tick = setTimeout(() => this.timerTick(), TICK)
   }
 
   commitMove (winner) {
@@ -43,8 +46,8 @@ export default class Game extends React.Component {
 
   render () {
     const { movesCount, times, winner } = this.state
-    const time = times[movesCount & 1].toPrecision(2) + 'secs'
-    const status = winner ? 'Winner: ' + winner : 'Player: ' + this.getPlayer()
+    const time = round(times[movesCount & 1] / TICK) + ' secs'
+    const status = winner ? (winner + ' won this game') : this.getPlayer()
 
     return (
       <div className="game">

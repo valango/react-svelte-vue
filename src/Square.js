@@ -1,4 +1,5 @@
 //  src/Square.js
+import React from 'react'
 
 //  Square is a Function Component.
 const Square = (props) =>

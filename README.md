@@ -1,6 +1,15 @@
-# Tic-Tac-Toe
+# Rect-Svelte-Vue
 
-This project began as my step-by-step track following the
+A demo of implementing the same app on three different platforms.
+
+## Motivation
+I created this project to
+   * learn some React and Svelte coding (I've been using Vue, mostly);
+   * try out the WebPack v5;
+   * immerse the strategy of famous 
+     [Tic Tac Toe](https://en.wikipedia.org/wiki/Tic-tac-toe) game.
+
+The project started as my step-by-step track following the
 [React tutorial](https://reactjs.org/tutorial/tutorial.html). However, since the commit
 labeled "Renamed the project", it is different.
 
@@ -27,4 +36,9 @@ The original readme is [here](doc/react.md).
 Not started.
 
 ### Vue
-Not started.
+Webpack setup: https://vue-loader.vuejs.org/guide
+
+### Other details
+I decided to use a unified webpack configuration and keep all different source modules
+in the same /src directory - kind of messy, but more fun - all three platforms use different
+filename extensions, after all.

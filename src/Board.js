@@ -10,10 +10,10 @@ const calculateWinner = (squares) => {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i], v = squares[a]
     if (v && squares[b] === v && squares[c] === v) {
-      return v
+      return `Player '${v}'`
     }
   }
-  return squares.indexOf(null) < 0 ? 'nobody' : null
+  return squares.indexOf(null) < 0 ? 'It is arguable who' : null
 }
 
 export default class Board extends React.Component {
