@@ -1,7 +1,11 @@
 {
-  "name": "react000",
+  "name": "tic-tac-toe",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valango/tic-tac-toe.git"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
