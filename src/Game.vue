@@ -1,10 +1,24 @@
 <template>
-  <div>
-    <h2>Vue!</h2>
+  <div class="game">
+    <Board />
+    <div class="game-info">
+      <div class="status">{{ status }}</div>
+      <ol>{{ todo }}</ol>
+    </div>
   </div>
 </template>
+
 <script>
+import Board from './Board.vue'
+
 export default {
-  name: 'App'
+  components: { Board },
+
+  data () {
+    return {
+      status: 'nothing yet',
+      todo: 'todo topics'
+    }
+  }
 }
 </script>

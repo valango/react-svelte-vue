@@ -36,7 +36,9 @@
   "scripts": {
     "clean": "rimraf build/*",
     "purge": "npm run clean && rimraf node_modules",
-    "start": "webpack serve --env development"
+    "rea": "webpack serve --env development src=r",
+    "sve": "webpack serve --env development src=s",
+    "vue": "webpack serve --env development src=v"
   },
   "eslintConfig": {
     "extends": [

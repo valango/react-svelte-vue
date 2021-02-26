@@ -1,3 +1,4 @@
+import '../public/index.css'
 import App from './Game.svelte'
 
 const app = new App({

@@ -1,5 +1,14 @@
 <script>
-export let name
+import Board from './Board.svelte'
+
+let status = 'nothing yet'
+let todo = 'todo topics'
 </script>
 
-<h1>Svelte is here: {name}!</h1>
+<div class="game">
+  <Board />
+  <div class="game-info">
+    <div class="status">{ status }</div>
+    <ol>{ todo }</ol>
+  </div>
+</div>
