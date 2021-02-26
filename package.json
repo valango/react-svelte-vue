@@ -1,11 +1,13 @@
 {
   "name": "tic-tac-toe",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/valango/react-svelte-vue.git"
   },
+  "license": "MIT",
+  "keywords": ["example", "vue", "svelte", "react", "webpack", "v5"],
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
