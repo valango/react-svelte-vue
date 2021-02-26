@@ -1,5 +1,6 @@
 {
-  "name": "tic-tac-toe",
+  "name": "react-svelte-vue",
+  "description": "Implementing the same app on three different platforms",
   "version": "0.1.0",
   "private": true,
   "repository": {

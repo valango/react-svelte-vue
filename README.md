@@ -26,17 +26,24 @@ As in case of any real project, the _Issues list_ will play its role.
 ### React
 The original readme is [here](doc/react.md).
 
-1. **Installation:** `npx create-react-app my-app` - that was basically all - yay!
+1. **Installation:** `npx create-react-app my-app` - that was easy!
+   ... but those scripts have been deleted from dependencies.
 1. **Concepts and learning:**
    - Very straight-forward and intuitive in the beginning.
    - From [Effect Hooks](https://reactjs.org/docs/hooks-effect.html) on,
    it took a little more effort to comprehend (not _how to_, but _what for_).
 
 ### Svelte
-Not started.
+1. **Installation:** adding the packages and configuring the loaders was a breeze.
+1. **Concepts and learning:**
+   - My first impression: It is sooo elegant!
 
 ### Vue
-Webpack setup: https://vue-loader.vuejs.org/guide
+1. **Installation:** adding the packages and configuring the loaders was a breeze,
+   but [Vue CLI](https://github.com/vuejs/vue-cli) might be a better choice in real life.
+   Also, there is absolutely awesome [Quasar framework](https://quasar.dev/) out there!
+1. I've been using Vue for years, by now. I think its well-structured, flexible and incremental.
+An initial learning curve may be a bit steeper than with React or Svelte.
 
 ### Other details
 I decided to use a unified webpack configuration and keep all different source modules
