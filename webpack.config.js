@@ -1,4 +1,4 @@
-// $/react.config
+// webpack.config
 'use strict'
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')

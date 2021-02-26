@@ -1,20 +1,7 @@
 //  src/Board.js
 import React from 'react'
 import Square from './Square'
-
-const lines = [
-  [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [6, 4, 2]
-]
-
-const calculateWinner = (squares) => {
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i], v = squares[a]
-    if (v && squares[b] === v && squares[c] === v) {
-      return `Player '${v}'`
-    }
-  }
-  return squares.indexOf(null) < 0 ? 'It is arguable who' : null
-}
+import { calculateWinner } from './lib/game-logic'
 
 export default class Board extends React.Component {
   constructor (props) {
@@ -34,8 +21,8 @@ export default class Board extends React.Component {
 
   renderSquare (i) {
     return <Square
-      value = {this.state.squares[i]}
-      onClick = {() => this.handleClick(i)}
+      value={this.state.squares[i]}
+      onClick={() => this.handleClick(i)}
     />
   }
 

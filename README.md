@@ -19,7 +19,7 @@ Here I implement the same mind boggling _TTT_ game on three platforms:
 _Vue_ is the only one I am familiar with right now, so it will be the last.
 I respectfully skip the [_Angular_](https://angularjs.org/) for aesthetic reasons.
 
-As in case of any real project, the _Issues list_ will play its role.
+As in case of any real project, the _Issues list_ plays an important role.
 
 ## Platforms and impressions
 
@@ -27,7 +27,8 @@ As in case of any real project, the _Issues list_ will play its role.
 The original readme is [here](doc/react.md).
 
 1. **Installation:** `npx create-react-app my-app` - that was easy!
-   ... but those scripts have been deleted from dependencies.
+   ... but the original scripts have been deleted from dependencies.<br />
+   React is the only one which does not need special loaders or plugins!
 1. **Concepts and learning:**
    - Very straight-forward and intuitive in the beginning.
    - From [Effect Hooks](https://reactjs.org/docs/hooks-effect.html) on,
@@ -49,3 +50,10 @@ An initial learning curve may be a bit steeper than with React or Svelte.
 I decided to use a unified webpack configuration and keep all different source modules
 in the same /src directory - kind of messy, but more fun - all three platforms use different
 filename extensions, after all.
+
+## Wrap-up
+### Configurations
+The WebPack configuration files here are structured for better readability.
+All three sub-configurations can be merged together without breaking anything.
+However, it's just a fun game here and using those three different platforms
+together in the same app is no smart idea in real life.
