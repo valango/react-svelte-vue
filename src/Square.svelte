@@ -1,14 +1,10 @@
 <!-- src/Square.svelte -->
 <script>
-export let id
-export let api
+export let api, id
 
 let mark = ''
 
-const { handleClick } = api
-
-const onClick = () => (mark = handleClick(id))
-
+const onClick = () => (mark = api.handleClick(id))
 </script>
 
 <button class="square" on:click={ onClick(id) }>
