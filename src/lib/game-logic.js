@@ -12,5 +12,5 @@ export const calculateWinner = (squares) => {
       return `Player '${v}'`
     }
   }
-  return squares.indexOf(null) < 0 ? 'It is arguable, who' : null
+  return squares.indexOf('') < 0 ? 'It is arguable, who' : null
 }

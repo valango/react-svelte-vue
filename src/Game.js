@@ -47,8 +47,8 @@ export default class Game extends React.Component {
   render () {
     const { movesCount, times, winner } = this.state
     const time = round(times[movesCount & 1] / TICK) + ' secs'
-    const todo = 'todo topics'
-    const status = winner ? (winner + ' won this game') : this.getPlayer()
+    const status = winner ? (winner + ' won this game')
+      : '\'' + this.getPlayer() + '\' on move'
 
     return (
       <div className="game">
@@ -61,7 +61,7 @@ export default class Game extends React.Component {
         </div>
         <div className="game-info">
           <div className="status">{status + ' (' + time + ')'}</div>
-          <ol>{todo}</ol>
+          <ol>{ /* todo */}</ol>
         </div>
       </div>
     )

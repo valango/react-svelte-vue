@@ -7,7 +7,7 @@ export default class Board extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      squares: new Array(9).fill(null)
+      squares: new Array(9).fill('')
     }
   }
 
