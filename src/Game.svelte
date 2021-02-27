@@ -1,3 +1,4 @@
+<!-- src/Game.svelte -->
 <script>
 import Board from './Board.svelte'
 import { onDestroy } from 'svelte'
