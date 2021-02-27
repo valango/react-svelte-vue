@@ -52,6 +52,8 @@ in the same /src directory - kind of messy, but more fun - all three platforms u
 filename extensions, after all.
 
 ## Wrap-up
+### Code
+
 ### Configurations
 The WebPack configuration files here are structured for better readability.
 All three sub-configurations can be merged together without breaking anything.

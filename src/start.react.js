@@ -1,8 +1,8 @@
 //  src/index.js
-import React from 'react'
-import ReactDOM from 'react-dom'
 import '../public/index.css'
 import Game from './Game'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 ReactDOM.render(
   <Game />,

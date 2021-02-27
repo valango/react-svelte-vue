@@ -1,6 +1,6 @@
 <script>
 import Board from './Board.svelte'
-import { onDestroy, onMount } from 'svelte'
+import { onDestroy } from 'svelte'
 
 const TICK = 1000
 const { round } = Math
@@ -19,7 +19,7 @@ const commitMove = (calculatedWinner) => {
     status = (winner = calculatedWinner) + ' won this game'
   } else {
     time = round(times[++movesCount & 1] / TICK)
-    status = '\'' + getPlayer() + '\' on move'
+    status = '\'' + getPlayer() + '\' to move'
   }
 }
 
@@ -28,9 +28,8 @@ const tick = () => {
   ticker = setTimeout(tick, TICK)
 }
 
-onMount(tick)
+commitMove(tick())
 onDestroy(() => clearTimeout(ticker))
-commitMove(null)
 </script>
 
 <div class="game">

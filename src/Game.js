@@ -48,7 +48,7 @@ export default class Game extends React.Component {
     const { movesCount, times, winner } = this.state
     const time = round(times[movesCount & 1] / TICK) + ' secs'
     const status = winner ? (winner + ' won this game')
-      : '\'' + this.getPlayer() + '\' on move'
+      : '\'' + this.getPlayer() + '\' to move'
 
     return (
       <div className="game">
