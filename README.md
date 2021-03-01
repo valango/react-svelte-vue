@@ -1,4 +1,4 @@
-# Rect-Svelte-Vue
+# React-Svelte-Vue
 
 A demo of implementing the same app on three different platforms.
 
@@ -11,7 +11,7 @@ I created this project to
 
 The project started as my step-by-step track following the
 [React tutorial](https://reactjs.org/tutorial/tutorial.html). However, since the commit
-labeled "Renamed the project", it is different.
+labeled "`Renamed the project`", it is different.
 
 Here I implement the same mind boggling _TTT_ game on three platforms:
 [_**React**_](https://reactjs.org/), [**_Svelte_**](https://svelte.dev/) and 
@@ -43,7 +43,7 @@ The original readme is [here](doc/react.md).
 ### Vue
 1. **Installation:** adding the packages and configuring the loaders was a breeze,
    but [Vue CLI](https://github.com/vuejs/vue-cli) might be a better choice in real life.
-   Also, there is absolutely awesome [Quasar framework](https://quasar.dev/) out there!
+   Also, there is an awesome [Quasar framework](https://quasar.dev/) out there!
 1. I've been using Vue for years, by now. I think its well-structured, flexible and incremental.
 An initial learning curve may be a bit steeper than with React or Svelte.
 
