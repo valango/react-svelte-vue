@@ -17,9 +17,9 @@ export default class Game extends React.Component {
     this.tick = undefined
   }
 
-  componentDidMount () {
+  /* componentDidMount () {   //  Disabled for redraw monitoring.
     this.tick = setTimeout(() => this.timerTick(), TICK)
-  }
+  } */
 
   componentWillUnmount () {
     clearTimeout(this.tick)

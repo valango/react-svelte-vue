@@ -9,6 +9,9 @@ export default {
     onClick () {
       this.mark = this.api.handleClick(this.$vnode.key)
     }
+  },
+  updated () {              //  Redraw monitoring.
+    console.log('updated', this.$vnode.key)
   }
 }
 </script>

@@ -20,6 +20,7 @@ export default class Board extends React.Component {
   }
 
   renderSquare (i) {
+    console.log('renderSquare', i)          //  Redraw monitoring.
     return <Square
       value={this.state.squares[i]}
       onClick={() => this.handleClick(i)}
@@ -27,6 +28,7 @@ export default class Board extends React.Component {
   }
 
   render () {
+    console.log('Board.render')
     return (
       <div>
         <div className="board-row">
