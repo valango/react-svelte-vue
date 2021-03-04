@@ -35,7 +35,7 @@ The original readme is [here](doc/react.md).
    - From [Effect Hooks](https://reactjs.org/docs/hooks-effect.html) on,
    it took more effort to comprehend (not _how to_, but _what for_). 😕
       - right now, I'm in trouble finding a way to solve the
-   rendering problem described below.
+   rendering problem described below. Using events seems to be a huge overkill.
 1. **Behavior:**
    - _A state change triggers full re-rendering of all the child components_ 😱 -
    I just couldn't believe [this](#indiscriminate-re-rendering)!
@@ -105,7 +105,7 @@ can be solved by moving clock stuff out of the root component _`state`_, but fix
 the second one would involve some more substantial refactoring.
 
 I do not think this is a horrific show stopper, but designing a performant
-app with React may actually be a bit more challenging, than one might expect.
+app with React may actually be a bit more challenging, than expected at the first glance.
 
 ### Configurations
 The WebPack configuration files here are structured for better readability.

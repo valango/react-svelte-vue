@@ -9,12 +9,13 @@ const { round } = Math
 export default class Game extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { status: '', winner: null, time: 0 }
+    this.state = { status: '', time: 0 }
     this.movesCount = -1
     this.squares = new Array(9).fill('')
     this.tick = undefined
     this.ticker = undefined
     this.times = [0, 0]
+    this.winner = undefined
   }
 
   getPlayer () {
@@ -23,11 +24,10 @@ export default class Game extends React.Component {
 
   commitMove (id) {
     const rune = this.squares[id] = this.getPlayer()
-    const winner = calculateWinner(this.squares)
 
-    if (winner) {
+    if ((this.winner = calculateWinner(this.squares))) {
       clearTimeout(this.ticker)
-      this.setState({ status: winner + ' won this game', winner })
+      this.setState({ status: this.winner + ' won this game' })
     } else {
       this.updateTime(++this.movesCount)
       this.setState({ status: '\'' + this.getPlayer() + '\' to move' })
@@ -37,7 +37,7 @@ export default class Game extends React.Component {
 
   componentDidMount () {   //  Disabled for redraw monitoring.
     this.commitMove(0)
-    // this.tick = setTimeout(() => this.timerTick(), TICK)
+    this.tick = setTimeout(() => this.timerTick(), TICK)
   }
 
   componentWillUnmount () {
@@ -45,7 +45,7 @@ export default class Game extends React.Component {
   }
 
   onEmptySquareClicked (id) {
-    return this.state.winner ? '' : this.commitMove(id)
+    return this.winner ? '' : this.commitMove(id)
   }
 
   timerTick () {
