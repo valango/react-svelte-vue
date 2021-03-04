@@ -31,10 +31,13 @@ The original readme is [here](doc/react.md).
 1. **Concepts and learning:**
    - Very straight-forward and intuitive in the beginning. 🙂
    - State mutations involve extra boilerplate code. 😐
+   - React seems to prefer functional components, e.g. you can't use hooks in classes.
    - From [Effect Hooks](https://reactjs.org/docs/hooks-effect.html) on,
    it took more effort to comprehend (not _how to_, but _what for_). 😕
+      - right now, I'm in trouble finding a way to solve the
+   rendering problem described below.
 1. **Behavior:**
-   - _A state change triggers full re-rendering of all the child components_. 😱<br />
+   - _A state change triggers full re-rendering of all the child components_ 😱 -
    I just couldn't believe [this](#indiscriminate-re-rendering)!
 
 ### Svelte
@@ -67,9 +70,9 @@ This table shows the source modules line counts and production bundle size.
 
 |  | Board | Game | Square | boot module | total (lines) | loadable (bytes) |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| React | 50 | 69 | 9 | 10 | 138 | 137 283 |
-| Svelte | 27 | 42 | 12 | 6 | 86 | 8 353 |
-| Vue | 32 | 53 | 18 | 5 | 108 | 68 815 |
+| React | 33 | 77 | 13 | 10 | 133 | 137 283 |
+| Svelte | 18 | 45 | 8 | 6 | 77 | 8 353 |
+| Vue | 19 | 61 | 18 | 5 | 103 | 68 815 |
 
 Svelte bundle is by far _**the most compact**_ of the three, while React seems
 to be the heaviest.

@@ -2,38 +2,32 @@
 import React from 'react'
 import Square from './Square'
 
-export default class Board extends React.Component {
-  constructor (props) {
-    super(props)
-  }
-
-  renderSquare (i) {
-    console.log('renderSquare', i)          //  Redraw monitoring.
-    return <Square
+export default function Board (props) {
+  const renderSquare = (i) =>
+    <Square
       id={i}
-      onEmptySquareClicked={this.props.onEmptySquareClicked}
+      onEmptySquareClicked={props.onEmptySquareClicked}
     />
-  }
 
-  render () {
-    return (
-      <div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
+  console.log('renderBoard')          //  Redraw monitoring.
+
+  return (
+    <div>
+      <div className="board-row">
+        {renderSquare(0)}
+        {renderSquare(1)}
+        {renderSquare(2)}
       </div>
-    )
-  }
+      <div className="board-row">
+        {renderSquare(3)}
+        {renderSquare(4)}
+        {renderSquare(5)}
+      </div>
+      <div className="board-row">
+        {renderSquare(6)}
+        {renderSquare(7)}
+        {renderSquare(8)}
+      </div>
+    </div>
+  )
 }

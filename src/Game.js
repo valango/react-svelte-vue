@@ -27,7 +27,7 @@ export default class Game extends React.Component {
 
     if (winner) {
       clearTimeout(this.ticker)
-      this.setState({ status: winner + ' won this game' })
+      this.setState({ status: winner + ' won this game', winner })
     } else {
       this.updateTime(++this.movesCount)
       this.setState({ status: '\'' + this.getPlayer() + '\' to move' })
