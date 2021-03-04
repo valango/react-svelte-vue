@@ -36,8 +36,6 @@ The original readme is [here](doc/react.md).
 1. **Behavior:**
    - _A state change triggers full re-rendering of all the child components_. 😱<br />
    I just couldn't believe [this](#indiscriminate-re-rendering)!
-     So I added _**redraw monitoring code**_ to all three implementations to
-     log rendering operations on developer console.
 
 ### Svelte
 1. **Installation:** adding the packages and configuring the loaders was a breeze.
@@ -55,6 +53,7 @@ The original readme is [here](doc/react.md).
 1. **Concepts and learning:** I've been using Vue for years... ok:
    - Vue is well-structured, quite flexible and incremental.
    - The initial learning curve may be a bit steeper than with React or Svelte.
+   - Vue provides both component-level and global events API.
    - Vue cleanly supports the [MVC pattern](https://en.wikipedia.org/wiki/Model-view-controller).
 
 ### Other details
@@ -71,8 +70,6 @@ This table shows the source modules line counts and production bundle size.
 | React | 50 | 69 | 9 | 10 | 138 | 137 283 |
 | Svelte | 27 | 42 | 12 | 6 | 86 | 8 353 |
 | Vue | 32 | 53 | 18 | 5 | 108 | 68 815 |
-
-_**Note:** the numbers above were taken before the redraw monitoring code was added._
 
 Svelte bundle is by far _**the most compact**_ of the three, while React seems
 to be the heaviest.

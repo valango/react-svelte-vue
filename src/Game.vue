@@ -1,5 +1,6 @@
 <!-- src/Game.vue -->
 <script>
+import { calculateWinner } from './lib/game-logic'
 import Board from './Board.vue'
 
 const TICK = 1000
@@ -9,6 +10,7 @@ export default {
   components: { Board },
   data: () => ({
     movesCount: -1,
+    squares: new Array(9).fill(''),
     status: '',
     ticker: null,
     time: 0,
@@ -19,14 +21,20 @@ export default {
     getPlayer () {
       return (this.movesCount & 1) ? 'O' : 'X'
     },
-    commitMove (calculatedWinner) {
-      if (calculatedWinner) {
+    commitMove (id) {
+      const rune = this.squares[id] = this.getPlayer()
+
+      if ((this.winner = calculateWinner(this.squares))) {
         clearTimeout(this.ticker)
-        this.status = (this.winner = calculatedWinner) + ' won this game'
+        this.status = this.winner + ' won this game'
       } else {
         this.time = round(this.times[++this.movesCount & 1] / TICK)
         this.status = '\'' + this.getPlayer() + '\' to move'
       }
+      return rune
+    },
+    onEmptySquareClicked (id) {
+      return this.winner ? '' : this.commitMove(id)
     }
   },
   created () {
@@ -44,7 +52,7 @@ export default {
 
 <template>
   <div class="game">
-    <Board :api="{getPlayer, commitMove}" />
+    <Board :api="{onEmptySquareClicked}" />
     <div class="game-info">
       <div class="status">{{ status + ' (' + time + ' secs)' }}</div>
       <ol><!-- todo  --></ol>

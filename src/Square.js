@@ -1,9 +1,20 @@
 //  src/Square.js
 import React from 'react'
 
-const Square = (props) =>
-  <button className="square" onClick={() => props.onClick()}>
-    {props.value}
-  </button>
+export default class Square extends React.Component {
+  constructor (props) {
+    super(props)
 
-export default Square
+    this.state = { rune: '' }
+  }
+
+  render () {
+    return (
+      <button
+        className="square"
+        onClick={() => (this.state.rune ||
+        this.setState({ rune: this.props.onEmptySquareClicked(this.props.id) }))}
+      >{ this.state.rune }</button>
+    )
+  }
+}

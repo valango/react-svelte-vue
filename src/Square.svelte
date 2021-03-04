@@ -1,16 +1,8 @@
 <!-- src/Square.svelte -->
 <script>
-import { afterUpdate } from 'svelte'
+export let api, id, rune = ''
 
-export let api, id
-
-let mark = ''
-
-afterUpdate(() => console.log('updated', id))       //  Redraw monitoring.
-
-const onClick = () => (mark = api.handleClick(id))
+const onClick = () => (rune || (rune = api.onEmptySquareClicked(id)))
 </script>
 
-<button class="square" on:click={ onClick }>
-  { mark }
-</button>
+<button class="square" on:click={ onClick }> { rune } </button>

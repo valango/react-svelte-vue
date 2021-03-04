@@ -1,6 +1,7 @@
 //  src/Game.js
-import React from 'react'
 import Board from './Board'
+import { calculateWinner } from './lib/game-logic'
+import React from 'react'
 
 const TICK = 1000
 const { round } = Math
@@ -8,59 +9,66 @@ const { round } = Math
 export default class Game extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      movesCount: 0,
-      times: [0, 0],
-      winner: null
-    }
-    //  Todo: check if this is kosher to add instance properties this way.
+    this.state = { status: '', winner: null, time: 0 }
+    this.movesCount = -1
+    this.squares = new Array(9).fill('')
     this.tick = undefined
+    this.ticker = undefined
+    this.times = [0, 0]
   }
 
-  /* componentDidMount () {   //  Disabled for redraw monitoring.
-    this.tick = setTimeout(() => this.timerTick(), TICK)
-  } */
+  getPlayer () {
+    return (this.movesCount & 1) ? 'O' : 'X'
+  }
+
+  commitMove (id) {
+    const rune = this.squares[id] = this.getPlayer()
+    const winner = calculateWinner(this.squares)
+
+    if (winner) {
+      clearTimeout(this.ticker)
+      this.setState({ status: winner + ' won this game' })
+    } else {
+      this.updateTime(++this.movesCount)
+      this.setState({ status: '\'' + this.getPlayer() + '\' to move' })
+    }
+    return rune
+  }
+
+  componentDidMount () {   //  Disabled for redraw monitoring.
+    this.commitMove(0)
+    // this.tick = setTimeout(() => this.timerTick(), TICK)
+  }
 
   componentWillUnmount () {
     clearTimeout(this.tick)
   }
 
+  onEmptySquareClicked (id) {
+    return this.state.winner ? '' : this.commitMove(id)
+  }
+
   timerTick () {
-    const times = [...this.state.times]
-    times[this.state.movesCount & 1] += TICK
-    this.setState({ times })
+    this.times[this.movesCount & 1] += TICK
+    this.updateTime()
     this.tick = setTimeout(() => this.timerTick(), TICK)
   }
 
-  commitMove (winner) {
-    this.setState({ movesCount: this.state.movesCount + 1 })
-    if (winner) {
-      clearTimeout(this.tick)
-      this.setState({ winner })
-    }
-  }
-
-  getPlayer () {
-    return (this.state.movesCount & 1) ? 'O' : 'X'
+  updateTime () {
+    this.setState({ time: round(this.times[this.movesCount & 1] / TICK) })
   }
 
   render () {
-    const { movesCount, times, winner } = this.state
-    const time = round(times[movesCount & 1] / TICK) + ' secs'
-    const status = winner ? (winner + ' won this game')
-      : '\'' + this.getPlayer() + '\' to move'
-
+    const { status, time } = this.state
     return (
       <div className="game">
         <div className="game-board">
           <Board
-            commitMove={(winner) => this.commitMove(winner)}
-            getPlayer={() => this.getPlayer()}
-            winner={this.state.winner}
+            onEmptySquareClicked={(id) => this.onEmptySquareClicked(id)}
           />
         </div>
         <div className="game-info">
-          <div className="status">{status + ' (' + time + ')'}</div>
+          <div className="status">{status + ' (' + time + ' secs)'}</div>
           <ol>{ /* todo */}</ol>
         </div>
       </div>

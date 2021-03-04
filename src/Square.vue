@@ -4,18 +4,15 @@ export default {
   props: {
     api: { type: Object, required: true }
   },
-  data: () => ({ mark: '' }),
+  data: () => ({ rune: '' }),
   methods: {
     onClick () {
-      this.mark = this.api.handleClick(this.$vnode.key)
+      this.rune || (this.rune = this.api.onEmptySquareClicked(this.$vnode.key))
     }
-  },
-  updated () {              //  Redraw monitoring.
-    console.log('updated', this.$vnode.key)
   }
 }
 </script>
 
 <template>
-  <button class="square" @click="onClick">{{ mark }}</button>
+  <button class="square" @click="onClick">{{ rune }}</button>
 </template>
