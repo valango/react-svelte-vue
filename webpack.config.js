@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { format } = require('util')
 const { resolve } = require('path')
-const ass = require('assert-fine')
 
 const platforms = ['React', 'Svelte', 'Vue']
 
@@ -24,7 +23,6 @@ module.exports = env => {
 
   const conf = {
     devServer: {
-      contentBase: resolve(__dirname, 'public'),
       port: 1111
     },
     entry: resolve(__dirname, 'src', 'start.' + platform + '.js'),
